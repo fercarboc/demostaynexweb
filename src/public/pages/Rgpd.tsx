@@ -1,7 +1,7 @@
 // src/public/pages/RGPD.tsx
 // Información sobre el Reglamento General de Protección de Datos
 // Página independiente accesible desde el footer → /rgpd
-import { useDemoConfig } from '@/src/hooks/useDemoConfig';
+import { useDemoConfig } from '../../hooks/useDemoConfig';
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 const { propertyName, location: propertyLocation, tagline } = useDemoConfig();

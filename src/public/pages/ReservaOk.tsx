@@ -4,6 +4,10 @@ import { CheckCircle2, Home, Calendar, CreditCard } from 'lucide-react';
 import { DemoBanner } from '../components/DemoBanner';
 import { DEMO_DEFAULTS } from '../../config/demoDefaults';
 
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
+
 export const ReservaOk: React.FC = () => {
   const [searchParams] = useSearchParams();
   const propertyName = searchParams.get('name')?.trim() || DEMO_DEFAULTS.propertyName;

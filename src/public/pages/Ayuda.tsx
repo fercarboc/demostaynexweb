@@ -1,8 +1,7 @@
 // src/public/pages/Ayuda.tsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import { useDemoConfig } from '@/src/hooks/useDemoConfig';
+import { useDemoConfig } from '../../hooks/useDemoConfig';
 
 const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
 

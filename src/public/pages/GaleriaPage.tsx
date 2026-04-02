@@ -3,28 +3,32 @@ import { HeroSection } from '../components/HeroSection';
 import { SectionContainer } from '../components/SectionContainer';
 import { CTASection } from '../components/CTASection';
 
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
+
 const galleryImages = [
-  { src: "/images/casa2.jpg",        alt: "Exterior de La Rasilla en los Valles Pasiegos" },
-  { src: "/images/casa3.jpg",        alt: "Fachada de la casa rural" },
-  { src: "/images/casa4.jpg",        alt: "Exterior con jardín privado" },
-  { src: "/images/casanueve.jpg",    alt: "La Rasilla en invierno" },
-  { src: "/images/porche.jpg",       alt: "Porche de entrada" },
-  { src: "/images/porche1.jpg",      alt: "Porche exterior" },
-  { src: "/images/entradaporche.jpg", alt: "Entrada y porche" },
-  { src: "/images/salon1.jpg",       alt: "Salón principal" },
-  { src: "/images/salon2.jpg",       alt: "Salón — zona de descanso" },
-  { src: "/images/cocina.jpg",       alt: "Cocina totalmente equipada" },
-  { src: "/images/habitacion1.jpg",  alt: "Habitación 1" },
-  { src: "/images/habitacion2.jpg",  alt: "Habitación 2" },
-  { src: "/images/habitacion3.jpg",  alt: "Habitación 3" },
-  { src: "/images/habitacion4.jpg",  alt: "Habitación 4" },
-  { src: "/images/habitacion5.jpg",  alt: "Habitación 5" },
-  { src: "/images/aseo1.jpg",        alt: "Baño completo" },
-  { src: "/images/aseo2.jpg",        alt: "Segundo baño" },
-  { src: "/images/escalera.jpg",     alt: "Escalera interior" },
-  { src: "/images/pueblo1.jpg",      alt: "Castillo Pedroso — Valle de Toranzo" },
-  { src: "/images/pueblo2.jpg",      alt: "Entorno del Valle de Toranzo" },
-  { src: "/images/pueblo3.jpg",      alt: "Paisaje de los Valles Pasiegos" },
+  { src: "/images/casa2.jpg",        alt: `Exterior de ${propertyName} en ${propertyLocation}` },
+  { src: "/images/casa3.jpg",        alt: `Fachada de ${propertyName}` },
+  { src: "/images/casa4.jpg",        alt: `Exterior con jardín privado de ${propertyName}` },
+  { src: "/images/casanueve.jpg",    alt: `${propertyName} en invierno` },
+  { src: "/images/porche.jpg",       alt: `Porche de entrada de ${propertyName}` },
+  { src: "/images/porche1.jpg",      alt: `Porche exterior de ${propertyName}` },
+  { src: "/images/entradaporche.jpg", alt: `Entrada y porche de ${propertyName}` },
+  { src: "/images/salon1.jpg",       alt: `Salón principal de ${propertyName}` },
+  { src: "/images/salon2.jpg",       alt: `Salón — zona de descanso de ${propertyName}` },
+  { src: "/images/cocina.jpg",       alt: `Cocina totalmente equipada de ${propertyName}` },
+  { src: "/images/habitacion1.jpg",  alt: `Habitación 1 de ${propertyName}` },
+  { src: "/images/habitacion2.jpg",  alt: `Habitación 2 de ${propertyName}` },
+  { src: "/images/habitacion3.jpg",  alt: `Habitación 3 de ${propertyName}` },
+  { src: "/images/habitacion4.jpg",  alt: `Habitación 4 de ${propertyName}` },
+  { src: "/images/habitacion5.jpg",  alt: `Habitación 5 de ${propertyName}` },
+  { src: "/images/aseo1.jpg",        alt: `Baño completo de ${propertyName}` },
+  { src: "/images/aseo2.jpg",        alt: `Segundo baño de ${propertyName}` },
+  { src: "/images/escalera.jpg",     alt: `Escalera interior de ${propertyName}` },
+  { src: "/images/pueblo1.jpg",      alt: `Castillo Pedroso — Valle de Toranzo cerca de ${propertyName}` },
+  { src: "/images/pueblo2.jpg",      alt: `Entorno del Valle de Toranzo cerca de ${propertyName}` },
+  { src: "/images/pueblo3.jpg",      alt: `Paisaje de los Valles Pasiegos cerca de ${propertyName}` },
 ];
 
 export const GaleriaPage: React.FC = () => {
@@ -32,7 +36,7 @@ export const GaleriaPage: React.FC = () => {
     <div className="bg-white">
       <HeroSection 
         title="Galería de imágenes"
-        subtitle="Un recorrido visual por cada rincón de La Rasilla y su entorno privilegiado."
+        subtitle={`Un recorrido visual por cada rincón de ${propertyName} y su entorno privilegiado.`}
         image="https://picsum.photos/seed/galeria/1920/1080"
       />
 

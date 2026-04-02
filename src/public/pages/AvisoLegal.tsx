@@ -1,6 +1,9 @@
 // src/public/pages/AvisoLegal.tsx
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
 
 export function AvisoLegal() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -10,7 +13,7 @@ export function AvisoLegal() {
       <GlobalStyles />
       <div style={s.page}>
         <div style={s.hero}>
-          <p style={s.heroLabel}>La Rasilla · Casa Rural</p>
+          <p style={s.heroLabel}>{propertyName} · Casa Rural</p>
           <h1 style={s.heroTitle}>Aviso Legal</h1>
           <p style={s.heroSub}>Condiciones de uso, reservas y política de cancelación</p>
         </div>
@@ -20,22 +23,22 @@ export function AvisoLegal() {
           <Section id="titular" title="1. Titular del sitio web">
             <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes datos identificativos:</p>
             <InfoTable rows={[
-              ['Titular', 'Fernando Carbonell de la Rasilla'],
+              ['Titular', propertyName],
               ['NIF', 'Disponible bajo solicitud justificada'],
-              ['Domicilio', 'Castillo Pedroso, Cantabria, España'],
-              ['Email de contacto', 'contacto@casarurallarasilla.com'],
-              ['Teléfono', '+34 690 288 707'],
+              ['Domicilio', propertyLocation],
+              ['Email de contacto', `contacto@${propertyName.toLowerCase().replace(/\s+/g, '')}.com`],
+              ['Teléfono', '+34 6900 000 000'],
               ['Actividad', 'Alojamiento rural — alquiler íntegro de casa rural'],
             ]} />
           </Section>
 
           <Section id="objeto" title="2. Objeto y ámbito de aplicación">
-            <p>El presente Aviso Legal regula el acceso y uso del sitio web <strong>casarurallarasilla.com</strong> (en adelante, «el Sitio»), así como la contratación del servicio de alojamiento rural ofertado en él.</p>
+            <p>El presente Aviso Legal regula el acceso y uso del sitio web <strong>{`www.${propertyName.toLowerCase().replace(/\s+/g, '')}.com`}</strong> (en adelante, «el Sitio»), así como la contratación del servicio de alojamiento rural ofertado en él.</p>
             <p>El acceso al Sitio implica la aceptación plena y sin reservas de todas las condiciones incluidas en este Aviso Legal, la Política de Privacidad y la Política de Cookies. Si no está conforme con alguna de estas condiciones, deberá abstenerse de utilizar el Sitio.</p>
           </Section>
 
           <Section id="alojamiento" title="3. Descripción del alojamiento y condiciones de uso">
-            <p><strong>La Rasilla</strong> es una casa rural de alquiler íntegro situada en Castillo Pedroso, en el Valle de Toranzo (Valles Pasiegos), Cantabria. El alojamiento se arrienda en su totalidad —no por habitaciones individuales— y dispone de las siguientes características:</p>
+            <p><strong>{propertyName}</strong> es una casa rural de alquiler íntegro situada en {propertyLocation}. El alojamiento se arrienda en su totalidad —no por habitaciones individuales— y dispone de las siguientes características:</p>
             <ul>
               <li>5 habitaciones dobles (una de ellas con posibilidad de tercera cama)</li>
               <li>Capacidad estándar: <strong>10 huéspedes incluidos en el precio</strong></li>

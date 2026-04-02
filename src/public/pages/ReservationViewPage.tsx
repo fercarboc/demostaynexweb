@@ -10,6 +10,10 @@ import {
 import { supabase } from '../../integrations/supabase/client'
 import { MetaTags } from '../components/MetaTags'
 
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
+
 interface Reserva {
   id: string; codigo: string; nombre: string; apellidos: string
   email: string; telefono: string
@@ -91,8 +95,8 @@ export const ReservationViewPage: React.FC = () => {
   return (
     <div className="mx-auto max-w-3xl px-6 py-10 space-y-6">
       <MetaTags
-        title={`Reserva ${reserva.codigo} · La Rasilla`}
-        description="Detalle de tu reserva en La Rasilla, casa rural Cantabria"
+        title={`Reserva ${reserva.codigo} · ${propertyName}`}
+        description={`Detalle de tu reserva en ${propertyName}, ${propertyLocation}`}
       />
 
       {/* Header */}
@@ -152,7 +156,7 @@ export const ReservationViewPage: React.FC = () => {
         <div className="space-y-4">
           <div className="rounded-2xl border border-stone-200 bg-white overflow-hidden shadow-sm">
             <div className="bg-stone-900 px-6 py-4 text-white">
-              <p className="font-serif font-bold text-lg">La Rasilla · Valles Pasiegos, Cantabria</p>
+              <p className="font-serif font-bold text-lg">{propertyName} · {propertyLocation}</p>
             </div>
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">

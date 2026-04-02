@@ -5,17 +5,23 @@ import { CTASection } from '../components/CTASection';
 import { Coffee, Utensils, Tv, Trees, ShieldCheck, Info, Calendar, Users, Bath } from 'lucide-react';
 import { MetaTags } from '../components/MetaTags';
 
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
+
+
+
 export const ServiciosPage: React.FC = () => {
   return (
     <div className="bg-white">
       <MetaTags 
-        title="Servicios | Casa rural en Cantabria con encanto | La Rasilla"
-        description="Conoce todos los servicios de La Rasilla. Wifi, barbacoa, cocina equipada, jardín privado y mucho más en tu casa rural en Cantabria."
+        title={`Servicios | ${propertyName} | ${propertyLocation}`}
+        description={`Conoce todos los servicios de ${propertyName}. Wifi, barbacoa, cocina equipada, jardín privado y mucho más en tu casa rural en ${propertyLocation}.`}
       />
 
       <HeroSection 
         title="Servicios pensados para tu comodidad"
-        subtitle="En La Rasilla cuidamos cada detalle para que tu única preocupación sea disfrutar de los Valles Pasiegos."
+        subtitle={`En ${propertyName} cuidamos cada detalle para que tu única preocupación sea disfrutar de ${propertyLocation}.`}
         image="/images/BAHIASANTANDER.png"
       />
 
@@ -23,7 +29,7 @@ export const ServiciosPage: React.FC = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-serif font-bold text-stone-800">Todo lo que necesitas, y un poco más</h2>
           <p className="mt-6 text-lg text-stone-600 leading-relaxed">
-            Nuestra <strong>casa rural en Cantabria con encanto</strong> ofrece una amplia gama de servicios diseñados para grupos grandes. 
+            Nuestra <strong>casa rural en ${propertyLocation} con encanto</strong> ofrece una amplia gama de servicios diseñados para grupos grandes. 
             Desde una conexión a internet estable hasta espacios exteriores privados, hemos pensado en todo para que te sientas como en casa.
           </p>
         </div>

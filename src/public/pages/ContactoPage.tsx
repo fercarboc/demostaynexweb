@@ -5,6 +5,10 @@ import { Mail, Phone, MapPin, Clock, ShieldCheck, CheckCircle2, Loader2 } from '
 import { MetaTags } from '../components/MetaTags';
 import { supabase } from '../../integrations/supabase/client';
 
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
+
 export const ContactoPage: React.FC = () => {
   const [form, setForm] = useState({ nombre: '', email: '', telefono: '', asunto: '', mensaje: '' });
   const [sending, setSending] = useState(false);
@@ -54,7 +58,7 @@ export const ContactoPage: React.FC = () => {
             <div>
               <h2 className="text-4xl font-serif font-bold text-stone-800 mb-6">Atención directa y personalizada</h2>
               <p className="text-lg text-stone-600 leading-relaxed">
-                En La Rasilla creemos en el trato cercano. Al contactar con nosotros, hablas directamente con los propietarios de la <strong>casa rural en Cantabria</strong>. Sin intermediarios, sin esperas innecesarias.
+                En {propertyName} creemos en el trato cercano. Al contactar con nosotros, hablas directamente con los propietarios de la <strong>casa rural en Cantabria</strong>. Sin intermediarios, sin esperas innecesarias.
               </p>
             </div>
 
@@ -63,8 +67,8 @@ export const ContactoPage: React.FC = () => {
                 <div className="rounded-full bg-emerald-100 p-3 text-emerald-700"><Phone size={24} /></div>
                 <div>
                   <h4 className="font-bold text-stone-800">Teléfono y WhatsApp</h4>
-                  <p className="text-stone-600">+34 690-288-707</p>
-                  <p className="text-stone-600">+34 672-336-572</p>
+                  <p className="text-stone-600">+34 600-000-000</p>
+                  <p className="text-stone-600">+34 600-000-000</p>
                   <p className="text-sm text-stone-400 mt-1">Atención inmediata para tus dudas.</p>
                 </div>
               </div>
@@ -72,7 +76,7 @@ export const ContactoPage: React.FC = () => {
                 <div className="rounded-full bg-emerald-100 p-3 text-emerald-700"><Mail size={24} /></div>
                 <div>
                   <h4 className="font-bold text-stone-800">Correo Electrónico</h4>
-                  <p className="text-stone-600">contacto@tudominio.com</p>
+                  <p className="text-stone-600">contacto@{propertyName.toLowerCase().replace(/\s+/g, '')}.com</p>
                   <p className="text-sm text-stone-400 mt-1">Respondemos en menos de 24 horas.</p>
                 </div>
               </div>

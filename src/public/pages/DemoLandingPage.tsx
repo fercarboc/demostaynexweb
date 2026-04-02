@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Home } from 'lucide-react';
 
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
+
 export const DemoLandingPage: React.FC = () => {
   const [name, setName] = useState('');
   const navigate = useNavigate();

@@ -1,5 +1,7 @@
-import { useDemoConfig } from '@/src/hooks/useDemoConfig';
+
 import React from 'react';
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
 const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
 
 const LegalLayout = ({ title, children }: { title: string; children: React.ReactNode }) => (

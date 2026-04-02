@@ -7,6 +7,10 @@ import { useSearchParams, Link } from 'react-router-dom'
 import { supabase, isMockMode } from '../../integrations/supabase/client'
 // Nota: la reserva se carga vía Edge Function, sin query directa a la DB
 
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
+
 // ─── Tipos ───────────────────────────────────────────────────────────────────
 interface Reserva {
   id: string
@@ -216,7 +220,7 @@ export default function ReservaConfirmada() {
 
         {/* ── Header minimalista ── */}
         <header style={styles.header}>
-          <Link to="/" style={styles.logo}>La Rasilla</Link>
+          <Link to="/" style={styles.logo}>{propertyName}</Link>
         </header>
 
         <main style={styles.main}>

@@ -2,6 +2,9 @@
 // Condiciones generales de reserva — resumen visual y accesible del Aviso Legal
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useDemoConfig } from '../../hooks/useDemoConfig';
+
+const { propertyName, location: propertyLocation, tagline } = useDemoConfig();
 
 export function Condiciones() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -11,7 +14,7 @@ export function Condiciones() {
       <GlobalStyles />
       <div style={s.page}>
         <div style={s.hero}>
-          <p style={s.heroLabel}>La Rasilla · Casa Rural</p>
+          <p style={s.heroLabel}>{propertyName} · Casa Rural</p>
           <h1 style={s.heroTitle}>Condiciones de Reserva</h1>
           <p style={s.heroSub}>Todo lo que necesitas saber antes de reservar</p>
         </div>

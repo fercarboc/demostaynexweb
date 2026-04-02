@@ -7,7 +7,7 @@ import { MetaTags } from '../components/MetaTags';
 import { useDemoConfig } from '../../hooks/useDemoConfig';
 
 export const DondeEstamosPage: React.FC = () => {
-  const { propertyName } = useDemoConfig();
+  const { propertyName, location: propertyLocation } = useDemoConfig();
   return (
     <div className="bg-white">
       <MetaTags 
@@ -27,7 +27,7 @@ export const DondeEstamosPage: React.FC = () => {
             <h2 className="text-4xl font-serif font-bold text-stone-800">Un entorno natural privilegiado</h2>
             <div className="prose prose-stone text-lg text-stone-600 leading-relaxed space-y-4">
               <p>
-                <strong>Casa Rural La Rasilla</strong> está en <strong>Castillo Pedroso (39699)</strong>, municipio de Corvera de Toranzo, en el <strong>Valle de Toranzo</strong> — uno de los auténticos Valles Pasiegos de Cantabria. Un entorno de pradera verde, montaña y silencio donde el tiempo parece detenerse.
+                <strong>{propertyName}</strong> está en <strong>{propertyLocation}</strong>, municipio de Corvera de Toranzo, en el <strong>Valle de Toranzo</strong> — uno de los auténticos Valles Pasiegos de Cantabria. Un entorno de pradera verde, montaña y silencio donde el tiempo parece detenerse.
               </p>
               <p>
                 Nuestra situación es privilegiada: a <strong>10 minutos de Puente Viesgo</strong>, donde encontrarás las famosas <strong>Cuevas del Castillo</strong> con arte rupestre paleolítico Patrimonio de la Humanidad. A solo <strong>1 km tienes las Bodegas Seldaiz</strong>, perfectas para una visita y cata. Y a pocos minutos, el impresionante salto de agua de <strong>El Churrón de Borleña</strong>.
@@ -60,7 +60,7 @@ export const DondeEstamosPage: React.FC = () => {
           <div className="relative">
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <iframe
-                title="Ubicación Casa Rural La Rasilla"
+                title={`Ubicación ${propertyName}`}
                 src="https://maps.google.com/maps?q=43.214925,-3.970798&z=16&output=embed"
                 width="100%"
                 height="100%"
@@ -78,7 +78,7 @@ export const DondeEstamosPage: React.FC = () => {
       </SectionContainer>
 
       <SectionContainer>
-        <h2 className="text-3xl font-serif font-bold text-stone-800 text-center mb-12">Cómo llegar a La Rasilla</h2>
+        <h2 className="text-3xl font-serif font-bold text-stone-800 text-center mb-12">Cómo llegar a {propertyName}</h2>
         <div className="grid gap-8 md:grid-cols-3">
           <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
             <div className="rounded-full bg-emerald-50 p-3 text-emerald-700 w-fit mb-6"><Car size={24} /></div>
@@ -97,7 +97,7 @@ export const DondeEstamosPage: React.FC = () => {
           </div>
         </div>
         <div className="mt-8 p-6 bg-emerald-50 rounded-2xl border border-emerald-100 text-center">
-          <p className="text-emerald-800 font-medium">📍 <strong>Castillo Pedroso, 39699 — Corvera de Toranzo, Cantabria</strong></p>
+          <p className="text-emerald-800 font-medium">📍 <strong>{propertyLocation}</strong></p>
           <p className="text-emerald-700 text-sm mt-1">La dirección exacta y acceso se facilita al confirmar la reserva.</p>
         </div>
       </SectionContainer>
@@ -105,7 +105,7 @@ export const DondeEstamosPage: React.FC = () => {
       <SectionContainer bg="stone">
         <CTASection 
           title="Ven a descubrir los Valles Pasiegos"
-          subtitle="Tu refugio en Cantabria te está esperando. Reserva ahora y vive la experiencia La Rasilla."
+          subtitle={`Tu refugio en Cantabria te está esperando. Reserva ahora y vive la experiencia ${propertyName}.`}
           buttonText="Ver disponibilidad y ubicación"
           to="/reservar"
         />
