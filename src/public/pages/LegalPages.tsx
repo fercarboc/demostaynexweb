@@ -18,7 +18,7 @@ export const AvisoLegal = () => (
     <section>
       <h2 className="text-xl font-bold text-stone-800 mb-4">1. Datos Identificativos</h2>
       <p>
-        En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, a continuación se reflejan los siguientes datos: la empresa titular de dominio web es {propertyName} (en adelante {propertyName}), con domicilio a estos efectos en {propertyLocation}. Correo electrónico de contacto: info@larasilla.com.
+        En cumplimiento con el  deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, a continuación se reflejan los siguientes datos: la empresa titular de dominio web es {propertyName} (en adelante {propertyName}), con domicilio a estos efectos en {propertyLocation}. Correo electrónico de contacto: info@larasilla.com.
       </p>
     </section>
     <section>
